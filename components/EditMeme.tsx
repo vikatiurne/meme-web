@@ -93,10 +93,12 @@ const EditMeme: React.FC<EditMemeProps> = ({ meme, isOpen, onOpenChange }) => {
       }}
     >
       <div
+        role="button"
         onClick={() => onOpenChange(false)}
         className="fixed inset-0 z-50 flex items-center justify-center flex-col gap-2 bg-gradient-to-t from-zinc-900 to-zinc-900/80 "
       >
         <div
+          role="button"
           className="p-4 bg-amber-50  rounded mx-2"
           onClick={(event) => {
             event.stopPropagation();

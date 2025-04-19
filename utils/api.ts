@@ -1,7 +1,8 @@
 import { IMeme } from "@/types";
 import axios from "axios";
 
-const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+// const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api`;
+const API_URL = "meme-api-production-04cb.up.railway.app/api";
 
 export const fetchMemes = async (): Promise<IMeme[]> => {
   const res = await axios.get(`${API_URL}/getAllMemes`);

@@ -61,11 +61,11 @@ export const EditIcon = ({
     viewBox="0 0 494.936 494.936"
     {...props}
   >
-    <g id="SVGRepoBgCarrier" stroke-width="0"></g>
+    <g id="SVGRepoBgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepoBracerCarrier"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepoIconCarrier">
       <g>

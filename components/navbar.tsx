@@ -31,7 +31,7 @@ export const Navbar = () => {
       maxWidth="xl"
       position="sticky"
       className="bg-slate-700"
-      isMenuOpen={isMenuOpen} // Передаем состояние открытия меню
+      isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -61,7 +61,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
+        className="hidden md:flex basis-1/5 sm:basis-full"
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
@@ -69,9 +69,9 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
         <ThemeSwitch />
-        <NavbarMenuToggle />
+        <NavbarMenuToggle className="text-[#947521]"/>
       </NavbarContent>
 
       <NavbarMenu>
@@ -80,7 +80,7 @@ export const Navbar = () => {
             <NavbarMenuItem key={item.label + index}>
               <Link
                 onClick={handleLinkClick}
-                className="block px-4 py-2 hover:underline hover:text-blue-500"
+                className="block px-4 py-2 hover:underline hover:text-[#947521]"
                 color="foreground"
                 href={item.href}
                 size="lg"

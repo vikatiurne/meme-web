@@ -17,7 +17,7 @@ const ReactQueryProvider: React.FC<ReactQueryProviderProps> = ({
             staleTime: 50 * 1000,
           },
         },
-      })
+      }),
   );
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

@@ -25,7 +25,10 @@ const MemeList = () => {
             <Card
               key={meme._id}
               className="py-4"
-              classNames={{ footer: "overflow-hidden max-w-[19rem] whitespace-nowrap text-ellipsis" }}
+              classNames={{
+                footer:
+                  "overflow-hidden max-w-[19rem] whitespace-nowrap text-ellipsis",
+              }}
             >
               <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                 <p className="text-tiny uppercase font-bold">{meme.name}</p>

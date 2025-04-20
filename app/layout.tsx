@@ -37,18 +37,16 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <ReactQueryProvider>
-
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="relative flex flex-col h-screen">
+              <Navbar />
               {children}
-          </div>
-        </Providers>
+            </div>
+          </Providers>
         </ReactQueryProvider>
       </body>
     </html>

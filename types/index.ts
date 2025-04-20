@@ -12,7 +12,6 @@ export interface IMeme {
   likes: number;
 }
 
-
 export interface ErrorResponse {
   message: string;
 }

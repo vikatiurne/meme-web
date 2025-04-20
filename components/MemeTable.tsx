@@ -11,13 +11,13 @@ import {
   TableRow,
   useDisclosure,
 } from "@heroui/react";
-import React, { useState } from "react";
-import { PencilSquareIcon } from "@heroicons/react/24/outline";
+import React, { useEffect, useState } from "react";
 import EditMeme from "./EditMeme";
 import Container from "./containers/Container";
 import { IMeme } from "@/types";
 import { useMemesQuery } from "@/hooks/useMemesQuery";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { EditIcon } from "@/components/icons";
 
 const MemeTable = () => {
   const [selectedMeme, setSelectedMeme] = useState<IMeme | null>(null);
@@ -33,19 +33,44 @@ const MemeTable = () => {
     onOpen();
   };
 
-  const TableBodyContentMotion = motion.div;
+  const TableBodyContentMotion = motion.table;
 
   const shakeAnimation = {
     initial: { translateX: 0 },
     animate: {
-      translateX: [0, 100, -100, 100, -100, 0],
+      translateX: [0, -120, 0],
       transition: {
         duration: 2,
-        ease: "easeInOut",
+        ease: "easeOut",
         repeat: 0,
       },
     },
   };
+
+  const noAnimation = {
+    initial: { translateX: 0 },
+    animate: { translateX: 0 },
+  };
+
+  const [isMdOrLarger, setIsMdOrLarger] = useState<boolean>(false);
+  const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMdOrLarger(window.innerWidth > 412);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const variants =
+    isMdOrLarger || prefersReducedMotion ? noAnimation : shakeAnimation;
 
   if (isPending) {
     return <p className="mt-6 mb-8 text-center">Loading...Get memes...</p>;
@@ -54,7 +79,8 @@ const MemeTable = () => {
       <Container>
         <div className="overflow-x-auto ">
           <TableBodyContentMotion
-            variants={shakeAnimation}
+            className="p-2 min-w-full bg-white shadow-md rounded-lg overflow-hidden"
+            variants={variants}
             initial="initial"
             animate="animate"
           >
@@ -107,10 +133,7 @@ const MemeTable = () => {
                           className="p-1 flex items-center gap-2 bg-[#947521] text-white hover:bg-[#bb9535] rounded"
                         >
                           Edit
-                          <PencilSquareIcon
-                            className="h-5 w-5 text-white"
-                            aria-hidden="true"
-                          />
+                          <EditIcon width={20} />
                         </Button>
                       </TableCell>
                     </TableRow>

@@ -12,7 +12,6 @@ import {
 import { Link } from "@heroui/link";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-
 import logo from "../public/logo.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";

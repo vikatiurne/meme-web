@@ -132,10 +132,13 @@ const EditMeme: React.FC<EditMemeProps> = ({ meme, isOpen, onOpenChange }) => {
                 placeholder="Likes"
                 label="Quantaty likes"
                 type="number"
+                min={0}
+                max={99}
                 inputMode="numeric"
                 value={likes}
                 onChange={(e) => setLikes(e.target.value)}
                 classNames={inputStyle}
+                errorMessage="Number mast be between 0 and 99"
               />
             </ModalBody>
             <ModalFooter>
